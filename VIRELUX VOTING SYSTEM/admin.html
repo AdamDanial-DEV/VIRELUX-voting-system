@@ -1,0 +1,100 @@
+<!-- admin.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - SMKDOB Voting System</title>
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <div class="admin-header">
+            <div class="logo">
+                <i class="fas fa-user-shield"></i>
+                <h1>SMKDOB ADMIN DASHBOARD</h1>
+            </div>
+            <div class="admin-info">
+                <span>Logged in as: <strong>Admin</strong></span>
+                <button id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </div>
+
+        <div class="admin-content">
+            <div class="admin-card">
+                <h2><i class="fas fa-toggle-on"></i> Voting Status</h2>
+                <div class="voting-controls">
+                    <button id="open-voting" class="status-btn active">Open Voting</button>
+                    <button id="close-voting" class="status-btn">Close Voting</button>
+                </div>
+                <p class="status-info">Current status: <span id="voting-status">OPEN</span></p>
+            </div>
+
+            <div class="admin-card">
+                <h2><i class="fas fa-bullhorn"></i> Announcement</h2>
+                <textarea id="announcement-text" class="admin-textarea" placeholder="Enter announcement for all users">Voting will close on 30th November 2023. Make your vote count!</textarea>
+                <button id="update-announcement" class="admin-btn"><i class="fas fa-paper-plane"></i> Publish Announcement</button>
+            </div>
+
+            <div class="admin-card">
+                <h2><i class="fas fa-key"></i> Password Management</h2>
+                <div class="form-group">
+                    <label for="new-password">New Voting Password</label>
+                    <input type="text" id="new-password" class="admin-input" placeholder="Enter new voting password">
+                </div>
+                <button id="update-password" class="admin-btn"><i class="fas fa-sync-alt"></i> Update Password</button>
+            </div>
+
+            <div class="admin-card">
+                <h2><i class="fas fa-crown"></i> Advanced Admin</h2>
+                <div class="form-group">
+                    <label for="super-password">Super Password</label>
+                    <div class="password-container">
+                        <input type="password" id="super-password" class="admin-input" placeholder="Enter 'DATUK ONN'">
+                        <span class="toggle-password"><i class="fas fa-eye"></i></span>
+                    </div>
+                </div>
+                <button id="reset-votes" class="admin-btn warning"><i class="fas fa-trash-alt"></i> Reset All Votes</button>
+                <button id="change-carousel" class="admin-btn"><i class="fas fa-images"></i> Change Carousel Image</button>
+            </div>
+
+            <div class="admin-card full-width">
+                <h2><i class="fas fa-chart-bar"></i> Voting Results</h2>
+                <div class="results-container" id="results-container">
+                    <!-- Results will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <div class="admin-card full-width">
+                <h2><i class="fas fa-user-plus"></i> Candidate Management</h2>
+                <div class="candidate-form">
+                    <div class="form-group">
+                        <label for="new-candidate-name">Candidate Name</label>
+                        <input type="text" id="new-candidate-name" class="admin-input" placeholder="Enter candidate name">
+                    </div>
+                    <div class="form-group">
+                        <label for="new-candidate-class">Class</label>
+                        <input type="text" id="new-candidate-class" class="admin-input" placeholder="Enter class">
+                    </div>
+                    <div class="form-group">
+                        <label for="new-candidate-vision">Vision</label>
+                        <textarea id="new-candidate-vision" class="admin-input" placeholder="Enter vision statement"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="new-candidate-image">Image URL</label>
+                        <input type="text" id="new-candidate-image" class="admin-input" placeholder="Enter image URL">
+                    </div>
+                    <button id="add-candidate" class="admin-btn"><i class="fas fa-plus"></i> Add Candidate</button>
+                </div>
+                
+                <div class="candidates-list" id="candidates-list">
+                    <!-- Candidates will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

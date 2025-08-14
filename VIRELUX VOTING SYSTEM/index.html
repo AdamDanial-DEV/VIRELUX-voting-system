@@ -1,0 +1,173 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMKDOB Voting System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-vote-yea"></i>
+                    <h1>SMKDOB VOTING SYSTEM</h1>
+                </div>
+                <div class="auth-buttons">
+                <button id="adminLoginBtn" class="btn-admin">
+                    <i class="fas fa-lock"></i> Admin
+                </button>
+                <button id="voteLoginBtn" class="btn-vote">
+                    <i class="fas fa-check-circle"></i> Login Undi
+                </button>
+            </div>
+                <div class="datetime">
+                    <span id="current-date"></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="announcement-bar">
+            <p id="announcement-text"><i class="fas fa-bullhorn"></i> Important Announcement: Voting will close on 30th November 2023. Make your vote count!</p>
+        </div>
+
+        <div class="candidates-section">
+            <h2 class="section-title">MEET THE CANDIDATES</h2>
+            <div class="carousel-container">
+                <div class="carousel">
+                    <!-- Slides will be populated by JavaScript -->
+                </div>
+                <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+                <div class="carousel-nav">
+                    <!-- Dots will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <h3 class="feature-title">Secure Voting</h3>
+                <p class="feature-desc">Our system uses password protection to ensure only authorized SMKDOB members can vote, maintaining election integrity.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <h3 class="feature-title">Live Results</h3>
+                <p class="feature-desc">Admins can monitor voting patterns and results in real-time, with comprehensive analytics and reporting.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <h3 class="feature-title">Admin Control</h3>
+                <p class="feature-desc">Dedicated admin panel for managing candidates, voting status, announcements, and system security.</p>
+            </div>
+        </div>
+
+        <div class="admin-section">
+            <form id="admin-login-form">
+                <span class="close-admin-popup">&times;</span>
+                <h2 class="section-title">ADMIN ACCESS</h2>
+                <div class="form-group">
+                    <label for="admin-username"><i class="fas fa-user"></i> Username</label>
+                    <input type="text" id="admin-username" class="form-control" placeholder="Enter admin username" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="admin-password"><i class="fas fa-key"></i> Password</label>
+                    <div class="password-container">
+                        <input type="password" id="admin-password" class="form-control" placeholder="Enter admin password" required>
+                        <span class="toggle-password"><i class="fas fa-eye"></i></span>
+                    </div>
+                </div>
+                
+                <button type="submit" class="submit-btn">Access Admin Panel</button>
+            </form>
+        </div>
+
+        <div class="suggestion-section">
+            <h2 class="section-title">SUGGEST A CANDIDATE</h2>
+            <form id="suggestion-form">
+                <div class="form-group">
+                    <label for="candidate-name"><i class="fas fa-user-graduate"></i> Candidate Name</label>
+                    <input type="text" id="candidate-name" class="form-control" placeholder="Enter candidate's full name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="candidate-class"><i class="fas fa-school"></i> Class</label>
+                    <input type="text" id="candidate-class" class="form-control" placeholder="Enter candidate's class" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="candidate-vision"><i class="fas fa-eye"></i> Vision Statement</label>
+                    <textarea id="candidate-vision" class="form-control" rows="4" placeholder="Enter candidate's vision for the school" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="teacher-password"><i class="fas fa-lock"></i> Teacher Password</label>
+                    <div class="password-container">
+                        <input type="password" id="teacher-password" class="form-control" placeholder="Enter 'CIKGU SMKDOB'" required>
+                        <span class="toggle-password"><i class="fas fa-eye"></i></span>
+                    </div>
+                </div>
+                
+                <button type="submit" class="submit-btn">Submit Candidate</button>
+            </form>
+        </div>
+
+        <h2 class="section-title">ALL CANDIDATES</h2>
+        <div class="candidate-grid" id="candidate-grid">
+            <!-- Candidates will be populated by JavaScript -->
+        </div>
+    </div>
+
+    <div class="floating-btn" id="vote-password-btn">
+        <i class="fas fa-key"></i>
+    </div>
+
+    <div class="modal" id="vote-modal">
+        <div class="modal-content">
+            <span class="close-modal"><i class="fas fa-times"></i></span>
+            <h2 class="modal-title">VOTING ACCESS</h2>
+            <div class="form-group">
+                <label for="voting-password"><i class="fas fa-lock"></i> Enter Voting Password</label>
+                <div class="password-container">
+                    <input type="password" id="voting-password" class="form-control" placeholder="Enter 'SMKDOB'" required>
+                    <span class="toggle-password"><i class="fas fa-eye"></i></span>
+                </div>
+            </div>
+            <button id="submit-vote-password" class="submit-btn">Access Voting</button>
+        </div>
+    </div>
+
+    <div class="modal" id="candidate-modal">
+        <div class="modal-content">
+            <span class="close-modal"><i class="fas fa-times"></i></span>
+            <div class="candidate-details" id="candidate-details">
+                <!-- Candidate details will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 SMKDOB Voting System. ADAM DANIAL, AZFAR 4 DIAMOND SMKDOB.  co</p>
+            <p>Secure | Transparent | Democratic | Aesthetic</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
